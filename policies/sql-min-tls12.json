@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "displayName": "SQL: minimum TLS 1.2",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "SQL servers must enforce TLS 1.2 or higher.",
+    "metadata": {
+      "category": "Data protection",
+      "severity": 0.7,
+      "owner": "Security lead",
+      "exceptionApprover": "Security & compliance"
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Sql/servers"
+          },
+          {
+            "field": "Microsoft.Sql/servers/minimalTlsVersion",
+            "notEquals": "1.2"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "name": "sql-min-tls12"
+}
