@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "displayName": "Storage: HTTPS only",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Storage accounts must require secure transfer.",
+    "metadata": {
+      "category": "Data protection",
+      "severity": 0.7,
+      "owner": "Security lead",
+      "exceptionApprover": "Security & compliance"
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly",
+            "equals": "false"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "name": "storage-https-only"
+}
