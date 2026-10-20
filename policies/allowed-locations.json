@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "displayName": "Allowed locations",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Resources may only run in approved EU regions (data residency).",
+    "metadata": {
+      "category": "Compliance",
+      "severity": 0.6,
+      "owner": "Cloud platform lead",
+      "exceptionApprover": "Security & compliance"
+    },
+    "policyRule": {
+      "if": {
+        "field": "location",
+        "notIn": [
+          "westeurope",
+          "northeurope",
+          "germanywestcentral"
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "name": "allowed-locations"
+}
