@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "displayName": "VM: no public IP",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Virtual machines must not have a public IP address.",
+    "metadata": {
+      "category": "Network security",
+      "severity": 0.8,
+      "owner": "Platform engineering",
+      "exceptionApprover": "Cloud platform lead"
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/hasPublicIp",
+            "equals": "true"
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  },
+  "name": "vm-no-public-ip"
+}
