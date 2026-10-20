@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Validate policy files
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          for p in pathlib.Path("policies").glob("*.json"):
+              d = json.loads(p.read_text(encoding="utf-8"))
+              assert "policyRule" in d["properties"], p
+              assert d["properties"]["policyRule"]["then"]["effect"] in ("deny", "audit"), p
+          print("policy files OK")
+          PY
+      - name: Run tests
+        run: pytest -q
