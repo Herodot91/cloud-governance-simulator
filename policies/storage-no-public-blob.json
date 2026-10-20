@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "displayName": "Storage: no public blob access",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Storage accounts must not allow anonymous public blob access.",
+    "metadata": {
+      "category": "Data protection",
+      "severity": 0.9,
+      "owner": "Security lead",
+      "exceptionApprover": "Security & compliance"
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+            "equals": "true"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "name": "storage-no-public-blob"
+}
