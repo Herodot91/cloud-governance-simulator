@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "displayName": "Require a costCenter tag",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Every resource needs a costCenter tag so cost can be assigned (FinOps).",
+    "metadata": {
+      "category": "Cost management",
+      "severity": 0.4,
+      "owner": "FinOps lead",
+      "exceptionApprover": "Cloud platform lead"
+    },
+    "policyRule": {
+      "if": {
+        "field": "tags['costCenter']",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "name": "require-costcenter-tag"
+}
