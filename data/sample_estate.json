@@ -1,0 +1,22 @@
+[
+  {"name":"stbordercustomsprod","type":"Microsoft.Storage/storageAccounts","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{"allowBlobPublicAccess":false,"supportsHttpsTrafficOnly":true},"ageDays":420,"exposure":"internal","monthlyCostEur":38},
+  {"name":"stpublicdocs","type":"Microsoft.Storage/storageAccounts","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{"allowBlobPublicAccess":true,"supportsHttpsTrafficOnly":true},"ageDays":610,"exposure":"internet","monthlyCostEur":22},
+  {"name":"stlegacyexport","type":"Microsoft.Storage/storageAccounts","location":"northeurope","tags":{},"properties":{"allowBlobPublicAccess":true,"supportsHttpsTrafficOnly":false},"ageDays":980,"exposure":"internet","monthlyCostEur":15},
+  {"name":"stanalyticsraw","type":"Microsoft.Storage/storageAccounts","location":"westeurope","tags":{"costCenter":"CC-200"},"properties":{"allowBlobPublicAccess":false,"supportsHttpsTrafficOnly":true},"ageDays":200,"exposure":"internal","monthlyCostEur":64},
+  {"name":"sttempupload","type":"Microsoft.Storage/storageAccounts","location":"eastus","tags":{},"properties":{"allowBlobPublicAccess":false,"supportsHttpsTrafficOnly":false},"ageDays":75,"exposure":"partner","monthlyCostEur":9},
+  {"name":"vm-api-01","type":"Microsoft.Compute/virtualMachines","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{"hasPublicIp":false},"ageDays":300,"exposure":"internal","monthlyCostEur":140},
+  {"name":"vm-api-02","type":"Microsoft.Compute/virtualMachines","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{"hasPublicIp":false},"ageDays":300,"exposure":"internal","monthlyCostEur":140},
+  {"name":"vm-jumpbox","type":"Microsoft.Compute/virtualMachines","location":"westeurope","tags":{"costCenter":"CC-300"},"properties":{"hasPublicIp":true},"ageDays":520,"exposure":"internet","monthlyCostEur":55},
+  {"name":"vm-test-old","type":"Microsoft.Compute/virtualMachines","location":"eastus","tags":{},"properties":{"hasPublicIp":true},"ageDays":850,"exposure":"internet","monthlyCostEur":70},
+  {"name":"vm-batch-01","type":"Microsoft.Compute/virtualMachines","location":"germanywestcentral","tags":{"costCenter":"CC-200"},"properties":{"hasPublicIp":false},"ageDays":120,"exposure":"isolated","monthlyCostEur":210},
+  {"name":"sql-core","type":"Microsoft.Sql/servers","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{"minimalTlsVersion":"1.2"},"ageDays":400,"exposure":"internal","monthlyCostEur":320},
+  {"name":"sql-reporting","type":"Microsoft.Sql/servers","location":"westeurope","tags":{"costCenter":"CC-200"},"properties":{"minimalTlsVersion":"1.0"},"ageDays":700,"exposure":"partner","monthlyCostEur":180},
+  {"name":"sql-legacy","type":"Microsoft.Sql/servers","location":"northeurope","tags":{},"properties":{"minimalTlsVersion":"1.0"},"ageDays":1100,"exposure":"internet","monthlyCostEur":95},
+  {"name":"kv-prod","type":"Microsoft.KeyVault/vaults","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{"enablePurgeProtection":true},"ageDays":400,"exposure":"internal","monthlyCostEur":4},
+  {"name":"kv-dev","type":"Microsoft.KeyVault/vaults","location":"westeurope","tags":{"costCenter":"CC-300"},"properties":{"enablePurgeProtection":false},"ageDays":150,"exposure":"internal","monthlyCostEur":3},
+  {"name":"kv-shared","type":"Microsoft.KeyVault/vaults","location":"eastus","tags":{},"properties":{"enablePurgeProtection":false},"ageDays":500,"exposure":"partner","monthlyCostEur":4},
+  {"name":"vnet-hub","type":"Microsoft.Network/virtualNetworks","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{},"ageDays":420,"exposure":"internal","monthlyCostEur":30},
+  {"name":"vnet-spoke-api","type":"Microsoft.Network/virtualNetworks","location":"westeurope","tags":{"costCenter":"CC-100"},"properties":{},"ageDays":300,"exposure":"internal","monthlyCostEur":12},
+  {"name":"vnet-spoke-data","type":"Microsoft.Network/virtualNetworks","location":"westeurope","tags":{"costCenter":"CC-200"},"properties":{},"ageDays":200,"exposure":"isolated","monthlyCostEur":12},
+  {"name":"vnet-sandbox","type":"Microsoft.Network/virtualNetworks","location":"eastus","tags":{},"properties":{},"ageDays":60,"exposure":"internet","monthlyCostEur":6}
+]
