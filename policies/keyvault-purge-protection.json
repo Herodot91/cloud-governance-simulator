@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "displayName": "Key Vault: purge protection on",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Key vaults must have purge protection enabled for resilience.",
+    "metadata": {
+      "category": "Resilience",
+      "severity": 0.5,
+      "owner": "Platform engineering",
+      "exceptionApprover": "Cloud platform lead"
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.KeyVault/vaults"
+          },
+          {
+            "field": "Microsoft.KeyVault/vaults/enablePurgeProtection",
+            "notEquals": "true"
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  },
+  "name": "keyvault-purge-protection"
+}
